@@ -1,12 +1,13 @@
 //const { exec } = require('child_process');
 const fs = require("fs");
 const express = require("express");
+const cors = require("cors")
 const path = require("path");
 const multer = require("multer");
 const uploadFolder = path.resolve(__dirname, "./face-rec/images");
 const storage = multer.diskStorage({
   // destination: function(req, file, callback) {
-  //   callback(null, '../face-rec/images');
+  //   callback(null, './face-rec/images');
   // }
   destination: uploadFolder,
   filename: function (req, file, callback) {
@@ -27,6 +28,7 @@ const knex = require("knex")({
     database: "lojaDB",
   },
 });
+app.use(cors());
 app.use(express.json());
 ////////////////////////////////////// GET //////////////////////////////////////
 
@@ -67,7 +69,7 @@ app.get("/pedidos", (req, res) => {
 });
 
 // app.get("/testImage", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../face-rec/images/Itamar.jpeg"));
+//   res.sendFile(path.join(__dirname, "./face-rec/images/Itamar.jpeg"));
 // });
 
 ////////////////////////////////////// PUT //////////////////////////////////////
@@ -278,13 +280,13 @@ app.delete("/deletarListaPedidos", async (req, res) => {
 
 ////////////////////////////////////// FS //////////////////////////////////////
 
-fs.writeFile("../face-rec/pessoa.txt", "Unknown", function (err) {
+fs.writeFile("./face-rec/pessoa.txt", "Unknown", function (err) {
   if (err) return console.log(err);
   console.log("Unknown > pessoa.txt");
 }); //resetting face rec person before start
 
 app.get("/pessoaReconhecida", async (req, res) => {
-  fs.readFile("../face-rec/pessoa.txt", (err, data) => {
+  fs.readFile("./face-rec/pessoa.txt", (err, data) => {
     if (err) {
       console.log(err);
     }
