@@ -25,7 +25,7 @@ const knex = require("knex")({
     port: 3306,
     user: "root",
     password: "hubs",
-    database: "lojaDB",
+    database: "lojadb",
   },
 });
 app.use(cors());
