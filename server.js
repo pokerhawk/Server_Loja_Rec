@@ -25,7 +25,7 @@ const knex = require("knex")({
     port: 3306,
     user: "root",
     password: "hubs",
-    database: "lojadb",
+    database: "lojaDB",
   },
 });
 app.use(cors());
@@ -296,6 +296,14 @@ app.get("/pessoaReconhecida", async (req, res) => {
   });
 });
 
+// app.get("/toDocument", async (req, res) =>{
+//   input = 
+//   fs.writeFile("./document.txt", input, function (err){
+//     if(err) return console.log(err);
+//     console.log("Document File Wrote")
+//   })
+// })
+
 ////////////////////////////////////// LOGS //////////////////////////////////////
 
 knex
@@ -332,4 +340,3 @@ knex
 app.listen(port, () => {
   console.log(`Server running at https:localhost:${port}`);
 });
-
