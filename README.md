@@ -1,4 +1,14 @@
-# loja-de-produtos-server
+**loja-de-produtos-server**
+
+---
+
+# Dependencias:
+
+mariadb, npm, nodejs, python or python3, python-pip, cmake, opencv-python, face_recognition
+
+---
+
+# Comandos:
 
 CREATE DATABASE lojaDB;
 
@@ -25,7 +35,22 @@ CREATE TABLE pedidos (
 
 INSERT INTO usuarios (login, senha, divida) VALUES ('eliabe', '123', 0);
 
-sudo pacman -S mysql
+```bash
+cd <path/to/folder>/Server_Loja_rec
+
+npm i
+
+npm start
+```
+
+---
+
+# ArchLinux:
+
+```bash
+sudo pacman -S mysql #pick mariadb or pacman -S mariadb
+
+sudo pacman -S npm python-pip cmake
 
 sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 
@@ -33,26 +58,11 @@ sudo systemctl start mariadb
 
 sudo mysql_secure_installation
 
-mysql -u root -p
-
-sudo pacman -S python-pip
-
-sudo pacman -S cmake
+mysql -u root -p #to access it
 
 pip install cmake
 
 pip install opencv-python
 
 pip install face_recognition
-
-git
-nodejs
-python
-cmake
-python-pip (use the get-pip.py file)
-mariadb(
-Open the CMD
-Navigate to your MariaDb installation folder (Default: C:\Program Files\MariaDb\bin\ )
-Type in: mysql -u root -p
-)
-C++ build tools vscode installer
+```
