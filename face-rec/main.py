@@ -1,5 +1,5 @@
 import cv2
-# import face_recognition
+#import face_recognition
 from simple_facerec import SimpleFacerec
 
 name_output = ''
